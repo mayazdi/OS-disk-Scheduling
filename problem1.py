@@ -130,6 +130,7 @@ def clook(direction):
     while len(requests) > 1:
         if direction:
             if index == len(requests) - 1:
+                requests.pop(index)
                 index = 0
                 continue
             total += add_distance(requests[index], requests[index+1])
@@ -137,7 +138,8 @@ def clook(direction):
         #Headed to Left
         else:
             if index == 0:
-                index = requests[len(requests)-1]
+                requests.pop(0)
+                index = len(requests)-1
                 continue
             total += add_distance(requests[index-1], requests[index])
             requests.pop(index)
